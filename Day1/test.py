@@ -1,0 +1,8 @@
+print("hello")
+print('hi')
+print("hello\nhi")
+print("hello" + " " + "harshil~")
+# input("a prompt for user,as what kind of data we wnat")
+print("hello "+ input("What is your Name?") + "!")
+name = input("What is your Name?")
+print(len(name))
