@@ -1,0 +1,6 @@
+When you create a module inside your Python folder, the __pycache__ folder is generated automatically. This folder stores the compiled bytecode of your Python files. Here’s why this happens:
+
+Bytecode Compilation: When you run a Python script or import a module, Python compiles your source code into bytecode, which is a lower-level, platform-independent representation of your code1.
+Faster Imports: Storing this bytecode in the __pycache__ folder allows Python to load modules faster in subsequent runs, as it can skip the compilation step if the bytecode is already available and up-to-date1.
+Automatic Creation: If the __pycache__ folder doesn’t exist, Python will create it the first time you run your script or import a module1.
+You can safely delete the __pycache__ folder if needed; it will be recreated the next time you run your script or import a module
