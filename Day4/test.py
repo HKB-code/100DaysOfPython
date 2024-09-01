@@ -37,5 +37,18 @@ print(list)
 
 friends = ["Harshil","peter","sam","jhon"]
 print(friends[random.randint(0,len(friends))])
+# The choice() method returns a randomly selected element from the specified sequence.
+
+# The sequence can be a string, a range, a list, a tuple or any other kind of sequence.
+
+
 print(random.choice(friends))
+
+
+# The choices() method returns a list with the randomly selected element from the specified sequence.
+
+# You can weigh the possibility of each result with the weights parameter or the cum_weights parameter.
+
+# The sequence can be a string, a range, a list, a tuple or any other kind of sequence.
+
 print(random.choices(friends))
