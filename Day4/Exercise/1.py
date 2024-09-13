@@ -5,7 +5,7 @@
 # The list() function is used to convert an iterable (such as a string , tuple or dictionary) into a list.It takes an iterable as an argument and returns a list with each element of the iterable as an itrm in the list.
 
 # The python range() function returns a sequence of numbers, in given a range. The most common use of it is to iterate sequences on a sequence of numbers using python loops.
-
+# The range() function in Python returns a range object, not a list of numbers. This object is an iterable, which means you can loop over it to access the numbers in the specified range.
 
 # Syntax: range(start, stop, step)
 
@@ -18,5 +18,6 @@
 
 
 my_range = range(1,21)
+print(my_range)
 print(list(my_range))
-print(list(1))
+# print(list(1))
