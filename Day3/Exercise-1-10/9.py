@@ -7,7 +7,7 @@ print(letters[-3:])
 # [-3:]  means from the item with index -3  (i.e. h ) to the very last item of the list. When you don't put any index to the colon's right, everything is included, and upper-bound exclusivity is ignored.
 
 # Understanding List Slicing
-# In Python, list slicing allows you to access a subset of elements from a list. The syntax is list[start:end], where:
+# * In Python, list slicing allows you to access a subset of elements from a list. The syntax is list[start:end], where:
 
 # start is the index where the slice begins (inclusive).
 # end is the index where the slice ends (exclusive).
