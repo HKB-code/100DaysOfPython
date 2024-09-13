@@ -43,7 +43,7 @@ print(type(h1))
 score =0
 height=1.8
 is_winning=True
-# So all of these different data types got combined into a string by using an f in front of the string,
+# *So all of these different data types got combined into a string by using an f in front of the string,
 # and then using these curly braces to place our variables into the string.
 # By using f-strings, you cut down on a lot of the manual labor of inserting different data types into
 # a string,
