@@ -1,0 +1,81 @@
+ 1. In Python, positional arguments are the most basic type of arguments passed to a function. They are assigned to the function parameters based on their position or order in the function call.
+
+## How Positional Arguments Work
+When you define a function, you specify its parameters. When you call the function, you provide values for these parameters in the same order as they are defined. The function then assigns these values to the corresponding parameters based on their position.
+
+Example:
+
+def greet(name, age):
+    print(f"Hello, my name is {name} and I am {age} years old.")
+
+# Calling the function with positional arguments
+greet("Alice", 30)
+
+In this example:
+
+The function greet has two parameters: name and age.
+When calling greet("Alice", 30), the value "Alice" is assigned to name and 30 is assigned to age based on their positions.
+
+## Benefits of Positional Arguments
+Simplicity: They are straightforward to use and understand.
+Order Matters: The order of arguments must match the order of parameters in the function definition.
+
+## Comparison with Keyword Arguments
+While positional arguments rely on the order, keyword arguments allow you to specify the parameter names explicitly, making the order irrelevant. For example:
+greet(name="Alice", age=30)
+greet(age=30, name="Alice")  # Order doesn't matter
+Both calls will produce the same output because the arguments are associated with the parameters by name.
+
+## Summary
+Positional Arguments: Values are assigned based on their position in the function call.
+Keyword Arguments: Values are assigned based on the parameter names, making the order irrelevant.
+
+
+2.Modular Arithmetic
+Modular arithmetic is a system of arithmetic for integers, where numbers “wrap around” upon reaching a certain value—the modulus. In your case, the modulus is the length of the alphabet list, which is 26.
+
+## How It Works in Your Code
+
+1.Alphabet List Length:
+The length of aplha_list is 26, representing the 26 letters of the English alphabet.
+2.Calculating Shifted Position:
+When you shift a letter by a certain amount, the new position might exceed 25 (the index of ‘z’). For example, shifting ‘z’ by 1 should wrap around to ‘a’.
+3.Using the % Operator:
+The % operator helps in wrapping around by taking the remainder of the division of the new position by the length of the alphabet list.
+
+## Example
+Let’s say you want to shift the letter ‘z’ by 1 position:
+
+1.Initial Position:
+The index of ‘z’ in aplha_list is 25.
+2.Shift Calculation:
+shift_position = 25 + 1 = 26
+3.Applying the % Operator:
+shift_position %= 26 results in shift_position = 0
+This means that after shifting ‘z’ by 1, the new position is 0, which corresponds to ‘a’.
+
+## Visual Representation
+Here’s a visual representation of how the % operator works:
+
+Alphabet:  [a, b, c, ..., x, y, z]
+Indexes:   [0, 1, 2, ..., 23, 24, 25]
+
+Shift 'z' by 1:
+Initial index of 'z': 25
+New index before wrapping: 25 + 1 = 26
+New index after wrapping: 26 % 26 = 0
+Resulting letter: 'a'
+
+
+## Code Example
+Here’s the relevant part of your code that uses the % operator:
+
+shift_position = ind + shift_amount
+shift_position %= len(aplha_list)
+
+This ensures that shift_position wraps around if it exceeds the length of aplha_list, effectively handling cases where the shift goes past ‘z’ and needs to wrap around to ‘a’.
+
+## Summary
+1.Modular Arithmetic: Ensures numbers wrap around upon reaching a certain value.
+2.% Operator: Used to calculate the remainder, ensuring the index stays within the bounds of the alphabet list.
+3.Wrap-Around: Essential for handling shifts that exceed the length of the alphabet, allowing ‘z’ to wrap around to ‘a’.
