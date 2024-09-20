@@ -11,4 +11,4 @@ print(new_list)  # Output: ["_", "_", "_", "_", "_"]
 print(original_list)  # Output: ["_"]
 
 
-4.
+4.The nested print statement prints None because of how the print function works in Python. When you use print inside another print, the inner print returns None, which is then printed by the outer print.
