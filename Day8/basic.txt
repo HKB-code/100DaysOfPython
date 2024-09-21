@@ -79,3 +79,150 @@ This ensures that shift_position wraps around if it exceeds the length of aplha_
 1.Modular Arithmetic: Ensures numbers wrap around upon reaching a certain value.
 2.% Operator: Used to calculate the remainder, ensuring the index stays within the bounds of the alphabet list.
 3.Wrap-Around: Essential for handling shifts that exceed the length of the alphabet, allowing ‘z’ to wrap around to ‘a’.
+
+3.Python scopping?
+
+=>In Python, scoping rules determine the visibility and lifetime of variables within different parts of your code. These rules are essential for understanding how variables are accessed and modified. Python follows the LEGB rule, which stands for Local, Enclosing, Global, and Built-in scopes. Here’s a breakdown:
+
+`1.Local Scope:
+Variables defined within a function are in the local scope.
+They can only be accessed within that function.
+
+def my_function():
+    x = 10  # Local variable
+    print(x)
+
+my_function()
+# Output: 10
+
+2.Enclosing Scope:
+This is relevant for nested functions.
+Variables in the enclosing (outer) function are accessible to the nested (inner) function.
+
+def outer_function():
+    x = 20  # Enclosing variable
+    def inner_function():
+        print(x)
+    inner_function()
+
+outer_function()
+# Output: 20
+
+3.Global Scope:
+Variables defined at the top level of a script or module are in the global scope.
+They can be accessed from any part of the code.
+
+x = 30  # Global variable
+
+def my_function():
+    print(x)
+
+my_function()
+# Output: 30
+
+4.Built-in Scope:
+This includes names that are pre-defined in Python, such as print(), len(), etc.
+
+print(len("Hello"))  # Built-in functions
+# Output: 5
+
+
+# Modifying Scope Behavior
+1.Global Keyword:
+Used to modify a global variable inside a function.
+
+x = 40
+
+def my_function():
+    global x
+    x = 50
+
+my_function()
+print(x)
+# Output: 50
+
+2.Nonlocal Keyword:
+Used to modify a variable in the enclosing scope within a nested function.
+
+def outer_function():
+    x = 60
+    def inner_function():
+        nonlocal x
+        x = 70
+    inner_function()
+    print(x)
+
+outer_function()
+# Output: 70
+
+
+#In Python, modifying a global variable from within a function without using the global keyword is not possible due to the language’s scoping rules. The global keyword is necessary to tell Python that you want to use the global variable rather than creating a new local one.
+#Note: However, there are a few alternative approaches you can consider:
+1.Using a Mutable Object:
+    You can use a mutable object like a list or dictionary to hold the variable. Since the object itself is not reassigned, you can modify its contents without needing the global keyword.
+
+should_continue = [True]  # Using a list to hold the variable
+
+def ceaaser(original_text, shift_amount, encode_or_decode):
+    aplha_list = [chr(i) for i in range(ord("a"), ord("z") + 1)]
+    shift_txt = ""
+    if encode_or_decode == 'decode':
+        shift_amount *= -1
+    for letter in original_text:
+        if letter in aplha_list:
+            ind = aplha_list.index(letter)
+            shift_position = ind + shift_amount
+            shift_position %= len(aplha_list)
+            shift_txt += aplha_list[shift_position]
+        else:
+            shift_txt += letter
+    print(f"Here is the {encode_or_decode}d message: {shift_txt}")
+    restart = input("Type 'yes' if you want to go again. Otherwise, type 'no'\n").lower()
+    if restart == 'no':
+        should_continue[0] = False
+        print("Bye..")
+
+while should_continue[0]:
+    print("Logo")
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+    text = input("Type your message...\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    ceaaser(original_text=text, shift_amount=shift, encode_or_decode=direction)
+
+
+2.Using a Class:
+You can encapsulate the logic within a class and use instance variables to maintain state.
+
+class CaesarCipher:
+    def __init__(self):
+        self.should_continue = True
+
+    def ceaaser(self, original_text, shift_amount, encode_or_decode):
+        aplha_list = [chr(i) for i in range(ord("a"), ord("z") + 1)]
+        shift_txt = ""
+        if encode_or_decode == 'decode':
+            shift_amount *= -1
+        for letter in original_text:
+            if letter in aplha_list:
+                ind = aplha_list.index(letter)
+                shift_position = ind + shift_amount
+                shift_position %= len(aplha_list)
+                shift_txt += aplha_list[shift_position]
+            else:
+                shift_txt += letter
+        print(f"Here is the {encode_or_decode}d message: {shift_txt}")
+        restart = input("Type 'yes' if you want to go again. Otherwise, type 'no'\n").lower()
+        if restart == 'no':
+            self.should_continue = False
+            print("Bye..")
+
+    def run(self):
+        while self.should_continue:
+            print("Logo")
+            direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+            text = input("Type your message...\n").lower()
+            shift = int(input("Type the shift number:\n"))
+            self.ceaaser(original_text=text, shift_amount=shift, encode_or_decode=direction)
+
+cipher = CaesarCipher()
+cipher.run()
