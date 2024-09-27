@@ -51,8 +51,10 @@ def blackJack():
      print(f"Your cards: {user_list}, current score: {current_score['user']}")
      print(f"Computer's first card: {computer_list[0]}")
      want_another_card = True;
-     while want_another_card and current_score['user']<21:
-      another_Card = input("Type 'y' to get another card, type 'n' to pass: ")
+  # correct a BUG here, The Bug is stopping the while loop in the code, the BUG:while want_another_card and current_score['user']<21:
+     
+     while want_another_card and current_score['user']<=21:
+      another_Card = input("Type 'y' to get another card, type 'n' to pass: ").lower()
       if another_Card =='n':
         while current_score['computer']<17:
          computer_list.append(random.choice(cards))
@@ -77,6 +79,8 @@ def blackJack():
         else:
             print(f"Your cards: {user_list}, current score: {current_score['user']}")
             print(f"Computer's first card: {computer_list[0]}")
+            
+ 
   if current_score['user']<=21 and current_score['computer']<=21:
      if current_score['user']>current_score['computer']:
       print("You win")
