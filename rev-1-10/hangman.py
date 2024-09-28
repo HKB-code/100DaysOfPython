@@ -280,40 +280,117 @@ logo = r'''
 |_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
                     __/ |                      
                    |___/    '''
-                                 
-print("Welcome to the Hangman...")
-print(logo)                                                              
-choosen_word = random.choice(word_list)
-wordLen = len(choosen_word)
-display = ["_"]*wordLen
-should_continue=True
-lives = 6
-print(display)
-print("You have 6 lives...")
-while should_continue:
+                   
+                   
+                               
+##First Version                                
+# print("Welcome to the Hangman...")
+# print(logo)                                                              
+# choosen_word = random.choice(word_list)
+# wordLen = len(choosen_word)
+# display = ["_"]*wordLen
+# should_continue=True
+# lives = 6
+# print(display)
+# print("You have 6 lives...")
+# while should_continue:
   
-  guess = input("Guess the letter.. ").lower()
+#   guess = input("Guess the letter.. ").lower()
+#   if guess in display:
+#     print("You've already guess the letter....")
+#     continue
+#   for index in range(wordLen):
+#     letter = choosen_word[index]
+#     if letter==guess:
+#       display[index] = letter
+#       print(display)
+      
+#   if guess not in choosen_word:
+#     lives-=1
+#     print("You lost a live" if lives==5 else ("You lost another lives"))
+#     print(f"{lives} lives left ")
+      
+#     if lives==0:
+#       print("You lost the game..")
+#       should_continue=False;
+
+#   if "_" not in display:
+#     print("you win")
+#     should_continue=False
+#   print(stages[lives])
+
+
+# # Second Version
+your_previous_record={}
+play_count=0
+def updateLeadboard(attempts,lives):
+  attempt = f"{attempts} game"
+  leadBoard= {
+    attempt : lives
+  }
+  your_previous_record.update(leadBoard)
+  
+def hangman():
+ global play_count
+ play_count+=1
+ print(logo)
+ choosen_word = random.choice(word_list)
+ print(choosen_word)
+ word_len = len(choosen_word)
+ display = ["_"]*word_len
+ print(display)
+ lives=6
+ end_of_game= False
+ while not end_of_game:
+  
+  guess= input("Guess the letter...")
   if guess in display:
-    print("You've already guess the letter....")
-    continue
-  for index in range(wordLen):
-    letter = choosen_word[index]
+    print("You already guess the letter...")
+    continue;
+  for index in range(word_len):
+    letter= choosen_word[index]
     if letter==guess:
-      display[index] = letter
+      display[index] = letter;
       print(display)
-      
   if guess not in choosen_word:
-    lives-=1
-    print("You lost a live" if lives==5 else ("You lost another lives"))
-    print(f"{lives} lives left ")
-      
-    if lives==0:
-      print("You lost the game..")
-      should_continue=False;
-
-  if "_" not in display:
-    print("you win")
-    should_continue=False
+      lives-=1
+      if lives==0:
+        print("You lost the game")
+        end_of_game=True
+        print(stages[lives])
+        
+        save_Records = input("Do you want to Save Your recods...Type 'y' or 'n'....." ).lower()
+        if save_Records=='y':
+          
+          updateLeadboard(attempts=play_count, lives=lives)
+        
+        print(your_previous_record)
+        
+        want_to_play_again = input("Want to play again, Type 'Y' or Tye 'n'....").lower()
+        if want_to_play_again=='y':
+           hangman()
+        # elif want_to_play_again=='n'
+          
+        
   print(stages[lives])
+  
+  if "_" not in display:
+    print("You win")
+    end_of_game =True  
+    save_Records = input("Do you want to Save Your recods...Type 'y' or 'n'....." ).lower()
+    if save_Records=='y':
+     
+     updateLeadboard(attempts=play_count, lives=lives)
+    print(your_previous_record)
+    
+    want_to_play_again = input("Want to play again, Type 'Y' or Tye 'n'....").lower()
+    if want_to_play_again=='y':
+      hangman()
 
-
+hangman() 
+# play_again = input("Want to play again, Type 'Y' or Tye 'n'....")
+# while play_again =='Y':
+#   hangman()
+  
+  
+     
