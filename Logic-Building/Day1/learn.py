@@ -101,3 +101,31 @@ for index, fruit in enumerate(fruits, start=1):
 word = "hello"
 for index, letter in enumerate(word):
     print(index, letter)
+    
+# /////////////////
+# enumerate returns an object
+# the enumerate function in Python returns an enumerate object. This object is an iterator that produces a sequence of tuples, each containing an index and the corresponding value from the iterable.
+
+# Example
+fruits = ['apple', 'banana', 'cherry']
+enum_fruits = enumerate(fruits)
+
+print(type(enum_fruits))  # Output: <class 'enumerate'>
+
+# Converting the enumerate object to a list of tuples
+print(list(enum_fruits))  # Output: [(0, 'apple'), (1, 'banana'), (2, 'cherry')]
+
+# Explanation:
+# enumerate(fruits): This creates an enumerate object from the fruits list.
+# type(enum_fruits): This confirms that enum_fruits is of type enumerate.
+# list(enum_fruits): This converts the enumerate object into a list of tuples, where each tuple contains an index and the corresponding value from the fruits list.
+
+# Using enumerate in a Loop
+# You can directly use the enumerate object in a loop to get both the index and the value:
+
+fruits = ['apple', 'banana', 'cherry']
+
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+
+#The enumerate function is very useful when you need to loop over an iterable and keep track of the index of each element
