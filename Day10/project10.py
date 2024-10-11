@@ -109,8 +109,10 @@ def calculate():
     repeat= input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation:").lower()
     if repeat =='y':
      n1 = answer
+    
     else:
       should_continue=False
+      print(f"here is the answer {answer}")
       calculate()
   
 calculate()
