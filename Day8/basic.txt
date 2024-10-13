@@ -3,7 +3,7 @@
 ## How Positional Arguments Work
 When you define a function, you specify its parameters. When you call the function, you provide values for these parameters in the same order as they are defined. The function then assigns these values to the corresponding parameters based on their position.
 
-Example:
+Example: 
 
 def greet(name, age):
     print(f"Hello, my name is {name} and I am {age} years old.")
