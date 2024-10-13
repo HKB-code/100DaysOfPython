@@ -20,4 +20,9 @@
 my_range = range(1,21)
 print(my_range)
 print(list(my_range))
-# print(list(1))
+# print(list(1))\
+
+# there’s an interesting quirk here: dictionaries are inherently unordered collections, so when you convert a dictionary to a list, Python only considers the keys. 
+ok = list({"j":"harshil",
+           "l":2})
+print(ok)
