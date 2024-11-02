@@ -49,7 +49,7 @@
 def ceaser(original_text,shift,encode_or_decode):
   alpha_list1 = [chr(i) for i in range(ord('a'), ord('z')+1)]
   alpha_list2 = [chr(i) for i in range(ord('A'), ord('Z')+1)]
-  numbers = list(range(1,101))
+  numbers = list(range(0,10))
   number_list = [str(num) for num in numbers]
   print(number_list)
   reverse_letter=[]
