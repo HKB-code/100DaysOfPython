@@ -34,7 +34,7 @@ drink_potion()
 # But if you create a variable within an if block, or a while loop, or a for loop or anything that has
 
 # the indentation and the colon, then that does not count as creating a separate local scope.
-
+# In Python, the scope of variables created within if, for, while blocks, etc., is not limited to the block itself. They are accessible in the surrounding code as well.
 # game_level =3
 # enemies = ["Skeleton", "Zombie","Alien"]
 # if game_level<5:
@@ -94,3 +94,9 @@ def my_func():
   print(PI)
   print(GOOGLE_URL)
 my_func()
+
+x=30
+def ok():
+  # x+=1
+  print(x)
+ok()
