@@ -67,3 +67,28 @@ travel_vlog = {
   }
   }
 print(travel_vlog["Germany"]["cities_visited"][1])
+
+num_entries = int(input("Enter the number of entries you want to add: "))
+
+use_dict = {input(f"Enter the key {i+1}: "): input(f"Enter the value {i+1}: ") for i in range(num_entries)}
+print(use_dict)
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'c': 3, 'd': 4}
+# print({**dict1,**dict2,**use_dict})
+for key,value in dict2.items():
+  print(key,value)
+  dict1[key]= value
+print(dict1) 
+
+dict3= {'a': 1, 'b': 2}
+dict4 = {'b': 3, 'd': 4,"b":6}
+
+for key,value in dict4.items():
+  if key in dict3:
+    if isinstance(dict3[key],list):
+      dict3[key].append(value)
+    else:
+      dict3[key] = [dict3[key],value]
+  else:
+    dict3[key] =value
+print(dict3)
