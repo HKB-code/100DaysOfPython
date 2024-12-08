@@ -105,7 +105,7 @@ This means that when this method is called,
 it knows the object that called it."""
   def follow(self,chef):
     chef.followers+=1
-    chef.following+=1
+    self.following+=1
     
     
     
